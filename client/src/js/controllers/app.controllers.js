@@ -221,68 +221,68 @@
         };
     }])
 
-    .controller('MainFooterCtrl', ['$scope', '$document', '$location', '$state', 'smoothScroll', function ($scope, $document, $location, $state, smoothScroll) {
+    .controller('MainFooterCtrl', ['$scope', '$document', '$location', '$state', function ($scope, $document, $location, $state) {
         
     }])
     
     .controller('AppCtrl', ['$rootScope', '$state', function ($rootScope, $state) {
         
-    }])
-    
-    .controller('ContactCtrl', ['$scope', '$http', '$timeout', 'AlertService', 'Mail', function ($scope, $http, $timeout, AlertService, Mail) {
-        $timeout(() => {
-            window.prerenderReady = true;
-        }, 500);
-        
-        // defaults
-        const dUser = {
-            name: '',
-            email: '',
-            phone: '',
-            subject: '',
-            message: ''
-        };
-
-        const dServerResponse = {
-            loginErr: false,
-            signUpErr: false
-        };
-
-        // init $scope
-        $scope.user             = angular.copy(dUser);
-        $scope.serverResponse   = angular.copy(dServerResponse);
-
-        $scope.sendEmail = function () {
-            $scope.submitSendEmail = true;
-            Mail.send({
-                name: $scope.user.name,
-                email: $scope.user.email,
-                phone: $scope.user.phone,
-                subject: $scope.user.subject,
-                message: $scope.user.message
-            })
-            .$promise
-            .then(res => {
-                // console.log('res: ', res);
-                $scope.submitSendEmail = false;
-                $scope.user = angular.copy(dUser);
-                $scope.contactForm.$setPristine();
-                $scope.contactForm.$setUntouched();
-                AlertService.setAlert({
-                    show: true,
-                    type: 'success',
-                    title: 'We have received your request and will get back to you as soon as we can.'
-                });
-            })
-            .catch(err => {
-                // console.log('err: ', err);
-                $scope.submitSendEmail = false;
-                AlertService.setAlert({
-                    show: true,
-                    type: 'error',
-                    title: 'An unexpected error occured.'
-                });
-            });
-        };
     }]);
+    
+    // .controller('ContactCtrl', ['$scope', '$http', '$timeout', 'AlertService', function ($scope, $http, $timeout, AlertService) {
+    //     $timeout(() => {
+    //         window.prerenderReady = true;
+    //     }, 500);
+        
+    //     // defaults
+    //     const dUser = {
+    //         name: '',
+    //         email: '',
+    //         phone: '',
+    //         subject: '',
+    //         message: ''
+    //     };
+
+    //     const dServerResponse = {
+    //         loginErr: false,
+    //         signUpErr: false
+    //     };
+
+    //     // init $scope
+    //     $scope.user             = angular.copy(dUser);
+    //     $scope.serverResponse   = angular.copy(dServerResponse);
+
+    //     $scope.sendEmail = function () {
+    //         $scope.submitSendEmail = true;
+    //         Mail.send({
+    //             name: $scope.user.name,
+    //             email: $scope.user.email,
+    //             phone: $scope.user.phone,
+    //             subject: $scope.user.subject,
+    //             message: $scope.user.message
+    //         })
+    //         .$promise
+    //         .then(res => {
+    //             // console.log('res: ', res);
+    //             $scope.submitSendEmail = false;
+    //             $scope.user = angular.copy(dUser);
+    //             $scope.contactForm.$setPristine();
+    //             $scope.contactForm.$setUntouched();
+    //             AlertService.setAlert({
+    //                 show: true,
+    //                 type: 'success',
+    //                 title: 'We have received your request and will get back to you as soon as we can.'
+    //             });
+    //         })
+    //         .catch(err => {
+    //             // console.log('err: ', err);
+    //             $scope.submitSendEmail = false;
+    //             AlertService.setAlert({
+    //                 show: true,
+    //                 type: 'error',
+    //                 title: 'An unexpected error occured.'
+    //             });
+    //         });
+    //     };
+    // }]);
 })(angular);
