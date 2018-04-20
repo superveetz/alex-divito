@@ -1,11 +1,13 @@
 .main-wrap {
-  position: relative;
+  position: absolute;
   box-sizing: border-box;
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
   .main-wrap .main-view {
     position: absolute;
     box-sizing: border-box;
     width: 100%;
+    height: 100%;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
     -ms-animation-fill-mode: both;

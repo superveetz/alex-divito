@@ -3,57 +3,57 @@
         'app.services'
     ])
 
-    .controller('MainNavCtrl', ['$rootScope', '$timeout', '$scope', '$firebaseAuth', '$http', '$window', '$state', 'ModalService', 'AlertService', function ($rootScope, $timeout, $scope, $firebaseAuth, $http, $window, $state, ModalService, AlertService) {
+    .controller('MainNavCtrl', ['$rootScope', '$timeout', '$scope', '$http', '$window', '$state', 'ModalService', 'AlertService', function ($rootScope, $timeout, $scope, $http, $window, $state, ModalService, AlertService) {
         // init $scope
-        $scope.authObj = $firebaseAuth();
+        // $scope.authObj = $firebaseAuth();
 
-        $timeout(() => {
-            window.prerenderReady = true;
-        }, 500);
+        // $timeout(() => {
+        //     window.prerenderReady = true;
+        // }, 500);
         
         // open register account modal
-        $scope.openRegisterAccountModal = function (closeMobileNav) {
-            AlertService.reset();
+        // $scope.openRegisterAccountModal = function (closeMobileNav) {
+        //     AlertService.reset();
 
-            if (closeMobileNav) {
-                $scope.closeMobileSideNav();
-                // wait for mobile side nav to close, then open modal
-                $timeout(() => {
-                    ModalService.openRegisterAccountModal();
-                }, 300);
-            } else {
-                ModalService.openRegisterAccountModal();
-            }
-        };
+        //     if (closeMobileNav) {
+        //         $scope.closeMobileSideNav();
+        //         // wait for mobile side nav to close, then open modal
+        //         $timeout(() => {
+        //             ModalService.openRegisterAccountModal();
+        //         }, 300);
+        //     } else {
+        //         ModalService.openRegisterAccountModal();
+        //     }
+        // };
 
         // open login modal
-        $scope.openLoginModal = function (closeMobileNav) {
-            AlertService.reset();
+        // $scope.openLoginModal = function (closeMobileNav) {
+        //     AlertService.reset();
             
-            if (closeMobileNav) {
-                $scope.closeMobileSideNav();
-                // wait for mobile side nav to close, then open modal
-                $timeout(() => {
-                    ModalService.openLoginModal();
-                }, 300);
-            } else {
-                ModalService.openLoginModal();
-            }
-        };
+        //     if (closeMobileNav) {
+        //         $scope.closeMobileSideNav();
+        //         // wait for mobile side nav to close, then open modal
+        //         $timeout(() => {
+        //             ModalService.openLoginModal();
+        //         }, 300);
+        //     } else {
+        //         ModalService.openLoginModal();
+        //     }
+        // };
 
         // toggle mobile getting started
-        $scope.showGettingStarted = false;
-        $scope.toggleGettingStarted = function () {
-            $scope.showGettingStarted = !$scope.showGettingStarted;
-            return true;
-        };
+        // $scope.showGettingStarted = false;
+        // $scope.toggleGettingStarted = function () {
+        //     $scope.showGettingStarted = !$scope.showGettingStarted;
+        //     return true;
+        // };
 
         // toggle mobile account options
-        $scope.showAccountOptions = false;
-        $scope.toggleAccountOptions = function () {
-            $scope.showAccountOptions = !$scope.showAccountOptions;
-            return true;
-        };
+        // $scope.showAccountOptions = false;
+        // $scope.toggleAccountOptions = function () {
+        //     $scope.showAccountOptions = !$scope.showAccountOptions;
+        //     return true;
+        // };
 
         // logout
         $scope.logOut = function () {
@@ -77,7 +77,7 @@
 
     }])
     
-    .controller('LoginCtrl', ['$rootScope', '$firebaseAuth', '$scope', '$http', '$window', '$uibModalInstance', 'AlertService', function ($rootScope, $firebaseAuth, $scope, $http, $window, $uibModalInstance, AlertService, AuthService) {
+    .controller('LoginCtrl', ['$rootScope', '$scope', '$http', '$window', '$uibModalInstance', 'AlertService', function ($rootScope, $scope, $http, $window, $uibModalInstance, AlertService, AuthService) {
         // defaults
         const dNewUser = {
             email: '',

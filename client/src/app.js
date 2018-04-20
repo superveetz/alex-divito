@@ -4,17 +4,17 @@
         'firebase',
         // 'angularfire',
         'ui.router',
-        // 'ui.bootstrap',
+        'ui.bootstrap',
         // 'ui.validate',
         // 'ngAnimate',
-        // 'app.controllers',
-        // 'app.directives',
-        // 'app.services',
+        'app.controllers',
+        'app.directives',
+        'app.services',
         // 'angulartics',
         // 'angulartics.google.analytics'
     ])
 
-    .run(['$rootScope', function ($rootScope) {
+    .run(['$rootScope', '$state', function ($rootScope, $state) {
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyCmnUCEFmCGyxEgmmtuSieTE58aj5OVHpQ",
@@ -44,14 +44,13 @@
         //     }
         // });
 
-        // // hook into onStateChangeStart event
-        // $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
-        //     // cancel state transition if 1 is occuring already
-        //     if ($rootScope.stateChangeOccuring) return e.preventDefault();
-
-        //     // disable any further state transitions
-        //     $rootScope.stateChangeOccuring = true;
-        // });
+        // hook into onStateChangeStart event
+        $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+            // hide nav on state change when expanded
+            if ($('#navbarSupportedContent').hasClass('show')) {
+                $('#navbarSupportedContent').collapse('hide');
+            }
+        });
 
         // // hook into onStateChangeSuccess event
         // $rootScope.$on('$stateChangeSuccess', function(e, toState, toParams, fromState, fromParams) {
@@ -94,29 +93,104 @@
             }]
         })
         
-        .state('app.home', {
+        .state('app.about', {
             url: '/',
-            templateUrl: '/views/home/index.html',
+            templateUrl: '/views/about/index.html',
             controller: ['$timeout', function ($timeout) {
                 $timeout(() => {
                     window.prerenderReady = true;
                 }, 500);
             }],
-            title: 'Mountain View Web Tech',
-            description: "A state of the art, web technology company based out of Chilliwack, British Columbia. We specialize in web development and custom business solutions including software design & development, database administration, media marketing, domain hosting/management and much more."
+            onEnter: [function() {
+                $('body').vide({
+                    mp4: "assets/mp4/world.mp4",
+                    poster: "assets/img/bg-mobile-fallback.jpg"
+                }, {
+                    posterType: 'jpg'
+                });
+            }],
+            onExit: [function() {
+                
+                // Destroy plugin instance
+                $('body').vide().stop();
+                $('body').data('vide').destroy();
+                
+            }],
+            title: 'About',
+            description: ""
+        })
+
+        .state('app.experience', {
+            url: '/experience',
+            templateUrl: '/views/experience/index.html',
+            controller: ['$timeout', function ($timeout) {
+                $timeout(() => {
+                    window.prerenderReady = true;
+                }, 500);
+            }],
+            title: 'Experience',
+            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+        })
+
+        .state('app.education', {
+            url: '/education',
+            templateUrl: '/views/education/index.html',
+            controller: ['$timeout', function ($timeout) {
+                $timeout(() => {
+                    window.prerenderReady = true;
+                }, 500);
+            }],
+            title: 'Education',
+            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+        })
+
+        .state('app.skills', {
+            url: '/skills',
+            templateUrl: '/views/skills/index.html',
+            controller: ['$timeout', function ($timeout) {
+                $timeout(() => {
+                    window.prerenderReady = true;
+                }, 500);
+            }],
+            title: 'Skills',
+            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+        })
+
+        .state('app.interests', {
+            url: '/interests',
+            templateUrl: '/views/interests/index.html',
+            controller: ['$timeout', function ($timeout) {
+                $timeout(() => {
+                    window.prerenderReady = true;
+                }, 500);
+            }],
+            title: 'Interests',
+            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+        })
+
+        .state('app.portfolio', {
+            url: '/portfolio',
+            templateUrl: '/views/portfolio/index.html',
+            controller: ['$timeout', function ($timeout) {
+                $timeout(() => {
+                    window.prerenderReady = true;
+                }, 500);
+            }],
+            title: 'Portfolio',
+            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+        })
+
+        .state('app.contact', {
+            url: '/contact',
+            templateUrl: '/views/contact/index.html',
+            controller: ['$timeout', function ($timeout) {
+                $timeout(() => {
+                    window.prerenderReady = true;
+                }, 500);
+            }],
+            title: 'Contact | Alex Di Vito',
+            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
         });
-        
-        // .state('app.about', {
-        //     url: '/about',
-        //     templateUrl: '/views/about/index.html',
-        //     controller: ['$timeout', function ($timeout) {
-        //         $timeout(() => {
-        //             window.prerenderReady = true;
-        //         }, 500);
-        //     }],
-        //     title: 'About | Mountain View Web Tech',
-        //     description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
-        // })
 
         // .state('app.services', {
         //     url: '/services',

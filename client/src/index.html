@@ -3,22 +3,26 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no"/>
+        <!-- <meta name="viewport" content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no"/> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         
-        <title>{{MvWtSeoService.getTitle()}}</title>
+        <title>| Alex Di Vito</title>
         <meta name="description" property="og:description" content="{{MvWtSeoService.getDescription()}}">
 
         <!-- Vendor CSS -->
         <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css">
         <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/bower_components/animate.css/animate.css">
+        <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css">
+        <link rel="stylesheet" href="/bower_components/devicon/devicon.min.css">
+        <link rel="stylesheet" href="/bower_components/devicon/devicon-colors.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         
         <!-- Themes CSS -->
-        <link rel="stylesheet" href="/css/themes/stylish-portfolio.css">
-        <link rel="stylesheet" href="/css/themes/modern-business.css">
+        <link href="/themes/startbootstrap-coming-soon/css/coming-soon.css" rel="stylesheet">
+        <link href="/themes/startbootstrap-resume/css/resume.css" rel="stylesheet">
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/fonts.css">
@@ -33,17 +37,17 @@
         
         <base href="/">
     </head>
-    <body scroll-disabled>
+    <body>
         <!-- Main Nav + Side Menu -->
         <main-nav id="main-nav"></main-nav>
-
+    
         <!-- App -->
         <div id="app" ui-view></div>
 
         <!-- Vendor JS -->
         <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+        <script type="text/javascript" src="/bower_components/vide/dist/jquery.vide.min.js"></script>
         <script type="text/javascript" src="/bower_components/async/dist/async.min.js"></script>
         <script type="text/javascript" src="/bower_components/firebase/firebase.js"></script>
         
@@ -62,11 +66,10 @@
         <script type="text/javascript" src="/app.js"></script>
         <!-- Modules -->    
         <!-- Services -->
-        <!-- <script type="text/javascript" src="/js/services/app.services.js"></script> -->
+        <script type="text/javascript" src="/js/services/app.services.js"></script>
         <!-- Directives -->
-        <!-- <script type="text/javascript" src="/js/directives/app.directives.js"></script> -->
+        <script type="text/javascript" src="/js/directives/app.directives.js"></script>
         <!-- Controllers -->
-        <!-- <script type="text/javascript" src="/js/controllers/app.controllers.js"></script> -->
-        
+        <script type="text/javascript" src="/js/controllers/app.controllers.js"></script>
     </body>
 </html>

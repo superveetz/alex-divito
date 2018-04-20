@@ -1,0 +1,6 @@
+[submodule "client/src/themes/startbootstrap-coming-soon"]
+	path = client/src/themes/startbootstrap-coming-soon
+	url = https://github.com/BlackrockDigital/startbootstrap-coming-soon.git
+[submodule "client/src/themes/startbootstrap-resume"]
+	path = client/src/themes/startbootstrap-resume
+	url = https://github.com/BlackrockDigital/startbootstrap-resume.git
