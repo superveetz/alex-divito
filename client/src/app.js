@@ -14,7 +14,7 @@
         // 'angulartics.google.analytics'
     ])
 
-    .run(['$rootScope', '$state', function ($rootScope, $state) {
+    .run(['$rootScope', '$location', '$anchorScroll', '$state', 'MvWtSeoService', function ($rootScope, $location, $anchorScroll, $state, MvWtSeoService) {
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyCmnUCEFmCGyxEgmmtuSieTE58aj5OVHpQ",
@@ -31,9 +31,6 @@
         
         // // store Current User data
         // $rootScope.CurrentUser = undefined;
-
-        // // attach MvWtSeoService for dynamic Seo
-        // $rootScope.MvWtSeoService = MvWtSeoService.public;
         
         // // register an event that will listen for firebase authentication
         // $firebaseAuth().$onAuthStateChanged(firebaseUser => {
@@ -52,23 +49,17 @@
             }
         });
 
-        // // hook into onStateChangeSuccess event
-        // $rootScope.$on('$stateChangeSuccess', function(e, toState, toParams, fromState, fromParams) {
-        //     // update seo
-        //     MvWtSeoService.setTitle(toState.title);
-        //     MvWtSeoService.setDescription(toState.description);
+        // hook into onStateChangeSuccess event
+        $rootScope.$on('$stateChangeSuccess', function(e, toState, toParams, fromState, fromParams) {
+            // update seo
+            MvWtSeoService.setTitle(toState.title);
+            MvWtSeoService.setDescription(toState.description);
 
-        //     // scroll to top on page once state change transition starts
-        //     $location.hash(fromState.name);
-        //     $anchorScroll();
-        //     $location.hash('');
-
-        //     // wait for transitition animation to end after 1s
-        //     $timeout(() => {
-        //         // allow state changes again
-        //         $rootScope.stateChangeOccuring = false;
-        //     }, 500);
-        // });
+            // scroll to top on page once state change transition starts
+            $location.hash(fromState.name);
+            $anchorScroll();
+            $location.hash('');
+        });
         
     }])
 
@@ -90,6 +81,11 @@
             templateUrl: '/views/index.html',
             controller: ['$rootScope', '$timeout', function ($rootScope, $timeout) {
                 
+            }],
+            onEnter: [function() {
+                $('body').on('click', (evnt) => {
+                    evnt.stopImmediatePropagation();
+                });
             }]
         })
         
@@ -106,18 +102,18 @@
                     mp4: "assets/mp4/world.mp4",
                     poster: "assets/img/bg-mobile-fallback.jpg"
                 }, {
-                    posterType: 'jpg'
+                    posterType: 'jpg',
+                    className: 'video-bg'
                 });
             }],
             onExit: [function() {
-                
                 // Destroy plugin instance
                 $('body').vide().stop();
                 $('body').data('vide').destroy();
                 
             }],
             title: 'About',
-            description: ""
+            description: "Located in British Columbia's Fraer Valley, I am a web developer and technology fanatic with several years of professional experience creating interactive web applications and business tools using an array of different technologies and system design methodologies."
         })
 
         .state('app.experience', {
@@ -129,7 +125,7 @@
                 }, 500);
             }],
             title: 'Experience',
-            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+            description: "With several years of experience working for a number of different service companies in the Fraser Valley, I have learned to become adaptable and wear many hats in order to produce successful web software that operates exactly the way it is intended to."
         })
 
         .state('app.education', {
@@ -141,7 +137,7 @@
                 }, 500);
             }],
             title: 'Education',
-            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+            description: "My passion for computer science and programming only became apparent to me in 2014. Prior to that, I pursued an education in applied sciences in hopes to become an engineer of some sort, but I lost interest in the complicated math after a few years."
         })
 
         .state('app.skills', {
@@ -153,7 +149,7 @@
                 }, 500);
             }],
             title: 'Skills',
-            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+            description: "I prefer to use open source frameworks and technologies when building web sites and information systems. I focus on writing clean, reusable code that can be used across multiple applications and focus on using tools that allow me to do that in the most intuitive way possible."
         })
 
         .state('app.interests', {
@@ -165,7 +161,7 @@
                 }, 500);
             }],
             title: 'Interests',
-            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+            description: "I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, fishkeeper and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world."
         })
 
         .state('app.portfolio', {
@@ -177,7 +173,7 @@
                 }, 500);
             }],
             title: 'Portfolio',
-            description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+            description: "Take a look at my portfolio to see the work that I have done for myself and my clients. All of my work is created using the latest and greatest technologies and I often times like to experiment with other languages and platforms."
         })
 
         .state('app.contact', {
@@ -188,7 +184,7 @@
                     window.prerenderReady = true;
                 }, 500);
             }],
-            title: 'Contact | Alex Di Vito',
+            title: 'Contact',
             description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
         });
 

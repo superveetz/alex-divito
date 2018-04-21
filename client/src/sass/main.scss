@@ -5,6 +5,11 @@ $dodger-blue: #0A95FF;
   width: 100%;
 }
 
+.video-bg {
+  z-index: -5 !important;
+  pointer-events: none;
+}
+
 body {
   padding: 0 !important;
   font-family: 'Source Sans Pro', sans-serif;
