@@ -56,7 +56,7 @@
             MvWtSeoService.setDescription(toState.description);
 
             // scroll to top on page once state change transition starts
-            $location.hash(fromState.name);
+            $location.hash('top');
             $anchorScroll();
             $location.hash('');
         });
@@ -83,9 +83,6 @@
                 
             }],
             onEnter: [function() {
-                $('body').on('click', (evnt) => {
-                    evnt.stopImmediatePropagation();
-                });
             }]
         })
         
@@ -97,19 +94,26 @@
                     window.prerenderReady = true;
                 }, 500);
             }],
-            onEnter: [function() {
-                $('body').vide({
-                    mp4: "assets/mp4/world.mp4",
-                    poster: "assets/img/bg-mobile-fallback.jpg"
-                }, {
-                    posterType: 'jpg',
-                    className: 'video-bg'
-                });
+            onEnter: ['$window', function($window) {
+                // on desktop show video background
+                if ($window.innerWidth > 991) {
+                    $('body').vide({
+                        mp4: "assets/mp4/world.mp4",
+                        poster: "assets/img/bg-mobile-fallback.jpg"
+                    }, {
+                        posterType: 'jpg',
+                        className: 'video-bg'
+                    });
+                }
             }],
             onExit: [function() {
-                // Destroy plugin instance
-                $('body').vide().stop();
-                $('body').data('vide').destroy();
+                // Get instance of the plugin
+                var instance = $('#body').data('vide');
+                if (instance) {
+                    // Destroy plugin instance
+                    instance.stop();
+                    instance.destroy();
+                }
                 
             }],
             title: 'About',

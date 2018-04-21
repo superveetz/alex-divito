@@ -3,8 +3,12 @@
   width: 100%; }
 
 .video-bg {
-  z-index: -5 !important;
-  pointer-events: none; }
+  z-index: -5 !important; }
+  .video-bg video {
+    z-index: -5 !important; }
+
+.overlay {
+  z-index: -4 !important; }
 
 body {
   padding: 0 !important;

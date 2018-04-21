@@ -7,7 +7,14 @@ $dodger-blue: #0A95FF;
 
 .video-bg {
   z-index: -5 !important;
-  pointer-events: none;
+
+  video {
+    z-index: -5 !important;
+  }
+}
+
+.overlay {
+  z-index: -4 !important;
 }
 
 body {
