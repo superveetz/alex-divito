@@ -3,7 +3,6 @@
 // declare dependencies
 var loopback  = require('loopback');
 var boot      = require('loopback-boot');
-var ejs       = require('ejs');
 var path      = require('path');
 
 // create app
@@ -20,9 +19,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // define templating engine
-app.set('view engine', 'html'); // use .html file extension
-app.engine('html', ejs.renderFile); // use ejs to render .html views
-app.set('views', __dirname + '/views'); // set default views directory
+// app.set('view engine', 'html'); // use .html file extension
+// app.engine('html', ejs.renderFile); // use ejs to render .html views
+// app.set('views', __dirname + '/views'); // set default views directory
 
 // start app
 app.start = function() {
