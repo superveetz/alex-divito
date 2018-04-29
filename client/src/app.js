@@ -19,8 +19,8 @@ import Directives           from './js/directives/app.directives';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../node_modules/font-awesome/css/font-awesome.css';
 // themes css
-import './themes/startbootstrap-coming-soon/css/coming-soon.css';
-import './themes/startbootstrap-resume/css/resume.css';
+import './css/startbootstrap-coming-soon.css';
+import './css/startbootstrap-resume.css';
 // sass
 import './sass/main.scss';
 import './sass/main-nav/main-nav.scss';
