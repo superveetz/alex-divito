@@ -1,0 +1,17 @@
+{
+    "db": {
+      "name": "db",
+      "connector": "memory"
+    },
+    "MongoDs": {
+      "host": "localhost",
+      "port": 27017,
+      "url": "",
+      "database": "MVWebtech",
+      "password": "",
+      "name": "MongoDs",
+      "user": "",
+      "connector": "mongodb"
+    }
+  }
+  
