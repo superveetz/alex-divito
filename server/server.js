@@ -9,7 +9,7 @@ var path      = require('path');
 var app = module.exports = loopback();
 
 // prerender for SEO
-app.use(require('prerender-node').set('prerenderToken', 'eywtf9vjsm2YRxGUfMw1'));
+app.use(require('prerender-node').set('prerenderToken', 'Ljfb7lKGnBM0LrZnDrEu'));
 
 // define templating engine
 // app.set('view engine', 'html'); // use .html file extension
