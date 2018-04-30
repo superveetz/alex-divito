@@ -1,0 +1,18 @@
+branch-defaults:
+  elastic-beanstalk:
+    environment: null
+    group_suffix: null
+global:
+  application_name: alex-divito
+  branch: elastic-beanstalk
+  default_ec2_keyname: aws-eb
+  default_platform: Node.js
+  default_region: us-west-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: origin
+  sc: git
+  workspace_type: Application

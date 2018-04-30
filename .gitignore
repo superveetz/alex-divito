@@ -19,4 +19,8 @@
 coverage
 node_modules
 npm-debug.log
-client/src/bower_components
+client/src/bower_components
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
