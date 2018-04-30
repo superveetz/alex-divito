@@ -19,6 +19,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(loopback.static(path.resolve(__dirname, '../client/dist/')));
 }
 
+// test
 // define templating engine
 app.set('view engine', 'html'); // use .html file extension
 app.engine('html', ejs.renderFile); // use ejs to render .html views
