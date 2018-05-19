@@ -119,19 +119,19 @@ const Config = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$l
         }],
         title: 'Portfolio',
         description: "Take a look at my portfolio to see the work that I have done for myself and my clients. All of my work is created using the latest and greatest technologies and I often times like to experiment with other languages and platforms."
-    })
-
-    .state('app.contact', {
-        url: '/contact',
-        templateUrl: require('./views/contact/index.html'),
-        controller: ['$timeout', function ($timeout) {
-            $timeout(() => {
-                window.prerenderReady = true;
-            }, 500);
-        }],
-        title: 'Contact',
-        description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
     });
+
+    // .state('app.contact', {
+    //     url: '/contact',
+    //     templateUrl: require('./views/contact/index.html'),
+    //     controller: ['$timeout', function ($timeout) {
+    //         $timeout(() => {
+    //             window.prerenderReady = true;
+    //         }, 500);
+    //     }],
+    //     title: 'Contact',
+    //     description: "We are a small startup based out of the Fraser Valley that is passionate about building digital stories and business solutions since 2017."
+    // });
     // end states
   }];
   

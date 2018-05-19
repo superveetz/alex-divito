@@ -6,6 +6,7 @@ import 'async';
 import angular             from 'angular';
 
 import uiRouter             from 'angular-ui-router';
+import ngResource           from 'angular-resource';
 
 import Config               from './Config.js';
 import Runners              from './Runners.js';
@@ -13,6 +14,7 @@ import Runners              from './Runners.js';
 //app js
 import Controllers          from './js/controllers/app.controllers';
 import Services             from './js/services/app.services';
+import lbServices           from './js/services/lb-services';
 import Directives           from './js/directives/app.directives';
 
 // vendor css
@@ -30,6 +32,8 @@ import './sass/view-transitions/view-transitions.scss';
 const appname = 'app';  /** App and root module name */
 const deps    = [ /** All global dependencies */
     'ui.router', 
+    'ngResource',
+    'lbServices',
     'app.controllers',
     'app.services',
     'app.directives'

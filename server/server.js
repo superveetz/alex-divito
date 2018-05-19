@@ -4,17 +4,25 @@
 var loopback  = require('loopback');
 var boot      = require('loopback-boot');
 var path      = require('path');
+var ejs       = require('ejs');
 
 // create app
 var app = module.exports = loopback();
 
 // prerender for SEO
-app.use(require('prerender-node').set('prerenderToken', 'Ljfb7lKGnBM0LrZnDrEu'));
+// app.use(require('prerender-node').set('prerenderToken', 'Ljfb7lKGnBM0LrZnDrEu'));
+
+// set static files to allow static files to avoid using the router
+if (process.env.NODE_ENV === 'development') {
+  app.use(loopback.static(path.resolve(__dirname, '../client/src/')));
+} else if (process.env.NODE_ENV === 'production') {
+  app.use(loopback.static(path.resolve(__dirname, '../client/dist/')));
+}
 
 // define templating engine
-// app.set('view engine', 'html'); // use .html file extension
-// app.engine('html', ejs.renderFile); // use ejs to render .html views
-// app.set('views', __dirname + '/views'); // set default views directory
+app.set('view engine', 'html'); // use .html file extension
+app.engine('html', ejs.renderFile); // use ejs to render .html views
+app.set('views', __dirname + '/../client/dist'); // set default views directory
 
 // start app
 app.start = function() {
