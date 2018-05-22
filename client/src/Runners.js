@@ -21,16 +21,16 @@ const Runners = ['$rootScope', '$state', '$location', '$anchorScroll', '$transit
   //   }
   // });
 
-  // $transitions.onSuccess({}, (transition) => {
-  //   // update seo
-  //   MvWtSeoService.setTitle(transition.to().title);
-  //   MvWtSeoService.setDescription(transition.to().description);
+  $transitions.onSuccess({}, (transition) => {
+    // update seo
+    MvWtSeoService.setTitle(transition.to().title);
+    MvWtSeoService.setDescription(transition.to().description);
 
-  //   // scroll to top on page once state change transition starts
-  //   $location.hash('top');
-  //   $anchorScroll();
-  //   $location.hash('');
-  // });
+    // scroll to top on page once state change transition starts
+    $location.hash('top');
+    $anchorScroll();
+    $location.hash('');
+  });
 }];
 
 /** Export our runners */

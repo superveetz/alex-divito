@@ -34,7 +34,6 @@
         return {
             setTitle: function (title) {
                 // get main title from <title> on first setTitle() call
-                console.log('hello');
                 if (!seoObj.mainTitle && !seoObj.firstCall) {
                     seoObj.mainTitle    = angular.element('head title').text();
                     seoObj.firstCall    = true;
