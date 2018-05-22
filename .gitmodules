@@ -4,3 +4,6 @@
 [submodule "client/src/themes/startbootstrap-resume"]
 	path = client/src/themes/startbootstrap-resume
 	url = https://github.com/BlackrockDigital/startbootstrap-resume.git
+[submodule "client/src/js/modules/sweet-btn"]
+	path = client/src/js/modules/sweet-btn
+	url = https://github.com/superveetz/sweet-btn.git

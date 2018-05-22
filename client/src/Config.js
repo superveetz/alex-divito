@@ -43,6 +43,9 @@ const Config = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$l
           $timeout(() => {
               window.prerenderReady = true;
           }, 500);
+
+          // init sweet btns
+          $('.sweet-btn').sweetButton();
         }],
         templateUrl: require('./views/about/index.html'),
         onEnter: ['$window', 'BgVid', ($window, BgVid) => {
