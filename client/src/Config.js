@@ -100,28 +100,28 @@ const Config = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$l
         description: "I prefer to use open source frameworks and technologies when building web sites and information systems. I focus on writing clean, reusable code that can be used across multiple applications and focus on using tools that allow me to do that in the most intuitive way possible."
     })
 
-    .state('app.interests', {
-        url: '/interests',
-        templateUrl: require('./views/interests/index.html'),
-        controller: ['$timeout', function ($timeout) {
-            $timeout(() => {
-                window.prerenderReady = true;
-            }, 500);
-        }],
-        title: 'Interests',
-        description: "I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, fishkeeper and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world."
-    })
+    // .state('app.interests', {
+    //     url: '/interests',
+    //     templateUrl: require('./views/interests/index.html'),
+    //     controller: ['$timeout', function ($timeout) {
+    //         $timeout(() => {
+    //             window.prerenderReady = true;
+    //         }, 500);
+    //     }],
+    //     title: 'Interests',
+    //     description: "I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, fishkeeper and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world."
+    // })
 
-    .state('app.portfolio', {
-        url: '/portfolio',
-        templateUrl: require('./views/portfolio/index.html'),
+    .state('app.work', {
+        url: '/work',
+        templateUrl: require('./views/work/index.html'),
         controller: ['$timeout', function ($timeout) {
             $timeout(() => {
                 window.prerenderReady = true;
             }, 500);
         }],
-        title: 'Portfolio',
-        description: "Take a look at my portfolio to see the work that I have done for myself and my clients. All of my work is created using the latest and greatest technologies and I often times like to experiment with other languages and platforms."
+        title: 'Work',
+        description: "Take a look at the websites i've worked on for clients as well as my own personal projects. All of my work is created using the latest and greatest technologies and I often times like to experiment with other languages and platforms."
     });
 
     // .state('app.contact', {

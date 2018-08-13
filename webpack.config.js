@@ -18,6 +18,13 @@ module.exports = {
     entry: {
         app: './client/src/app.js',
     },
+    devServer: {
+        port: 1337,
+        proxy: {
+            '/api': 'http://127.0.0.1:3001'
+        },
+        historyApiFallback: true
+    },
     output: {
         path: path.resolve(__dirname, 'client/dist/'),
         filename: 'bundle.js',

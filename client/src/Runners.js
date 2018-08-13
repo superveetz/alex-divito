@@ -14,12 +14,12 @@ const Runners = ['$rootScope', '$state', '$location', '$anchorScroll', '$transit
    * @param {Object} to - Next state.
    */
   
-  // $transitions.onStart({}, (transition) => {
-  //   // hide nav on state change when expanded
-  //   if ($('#navbarSupportedContent').hasClass('show')) {
-  //       $('#navbarSupportedContent').collapse('hide');
-  //   }
-  // });
+  $transitions.onStart({}, (transition) => {
+    // hide nav on state change when expanded
+    if ($('#navbarSupportedContent').hasClass('show')) {
+        $('#navbarSupportedContent').collapse('hide');
+    }
+  });
 
   $transitions.onSuccess({}, (transition) => {
     // update seo
