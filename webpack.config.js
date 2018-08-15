@@ -150,6 +150,16 @@ module.exports = {
                 to: 'assets/'
             }
         ]),
+        new CopyWebpackPlugin([{
+            context: 'client/src',
+            from: 'sitemap.xml'
+        },
+        {
+            context: 'client/src',
+            from: 'assets',
+            to: 'assets/'
+        }
+    ]),
         new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
         new CleanWebpackPlugin(['client/dist'])
     ],
